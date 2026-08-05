@@ -24,6 +24,7 @@ use OpenDxp\Model\DataObject\QuantityValue\Unit;
 use OpenDxp\Model\DataObject\QuantityValue\UnitConversionService;
 use OpenDxp\Model\DataObject\Traits\ObjectVarTrait;
 use OpenDxp\Model\DataObject\Traits\OwnerAwareFieldTrait;
+use OpenDxp\Model\DataObject\Traits\ToStringRenderTrait;
 use OpenDxp\Model\Exception\NotFoundException;
 use Stringable;
 
@@ -31,6 +32,7 @@ abstract class AbstractQuantityValue implements OwnerAwareFieldInterface, String
 {
     use ObjectVarTrait;
     use OwnerAwareFieldTrait;
+    use ToStringRenderTrait;
 
     protected string|null $unitId = null;
 
@@ -109,6 +111,4 @@ abstract class AbstractQuantityValue implements OwnerAwareFieldInterface, String
     }
 
     abstract public function getValue(): mixed;
-
-    abstract public function __toString(): string;
 }

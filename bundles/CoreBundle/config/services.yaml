@@ -108,6 +108,11 @@ services:
         public: true
         class: OpenDxp\Model\DataObject\QuantityValue\DefaultConverter
 
+    OpenDxp\Model\DataObject\Data\ToStringFormatterService:
+        public: true
+        arguments:
+            $templates: '%opendxp.data_object.to_string.templates%'
+
     OpenDxp\Bundle\CoreBundle\Request\ParamResolver\DataObjectParamResolver:
         tags:
             - { name: controller.argument_value_resolver, priority: 101}

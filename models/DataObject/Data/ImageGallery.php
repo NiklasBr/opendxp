@@ -19,11 +19,13 @@ namespace OpenDxp\Model\DataObject\Data;
 use Iterator;
 use OpenDxp\Model\DataObject\OwnerAwareFieldInterface;
 use OpenDxp\Model\DataObject\Traits\OwnerAwareFieldTrait;
+use OpenDxp\Model\DataObject\Traits\ToStringRenderTrait;
 use Stringable;
 
 class ImageGallery implements Iterator, OwnerAwareFieldInterface, Stringable
 {
     use OwnerAwareFieldTrait;
+    use ToStringRenderTrait;
 
     /**
      * @var array<int, Hotspotimage|null>
@@ -82,7 +84,7 @@ class ImageGallery implements Iterator, OwnerAwareFieldInterface, Stringable
         $this->markMeDirty();
     }
 
-    public function __toString(): string
+    protected function renderToString(): string
     {
         if ($this->items) {
             /** @var array<int, Hotspotimage> $filtered */

@@ -19,6 +19,7 @@ namespace OpenDxp\Model\DataObject\Data;
 use OpenDxp\Model\Asset;
 use OpenDxp\Model\DataObject\OwnerAwareFieldInterface;
 use OpenDxp\Model\DataObject\Traits\OwnerAwareFieldTrait;
+use OpenDxp\Model\DataObject\Traits\ToStringRenderTrait;
 use OpenDxp\Model\Element\ElementDescriptor;
 use OpenDxp\Model\Element\Service;
 use Stringable;
@@ -26,6 +27,7 @@ use Stringable;
 class Hotspotimage implements OwnerAwareFieldInterface, Stringable
 {
     use OwnerAwareFieldTrait;
+    use ToStringRenderTrait;
 
     protected ElementDescriptor|Asset\Image|null $image = null;
 
@@ -179,7 +181,7 @@ class Hotspotimage implements OwnerAwareFieldInterface, Stringable
         return $this->getImage()->getThumbnail($thumbConfig, $deferred);
     }
 
-    public function __toString(): string
+    protected function renderToString(): string
     {
         if ($this->image) {
             return $this->image->__toString();

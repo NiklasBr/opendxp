@@ -45,7 +45,7 @@ class QuantityValue extends AbstractQuantityValue
     /**
      * @throws Exception
      */
-    public function __toString(): string
+    public function renderToString(): string
     {
         $value = $this->getValue();
         if (is_numeric($value)) {

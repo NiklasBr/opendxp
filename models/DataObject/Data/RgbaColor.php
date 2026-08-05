@@ -19,11 +19,13 @@ namespace OpenDxp\Model\DataObject\Data;
 use Exception;
 use OpenDxp\Model\DataObject\OwnerAwareFieldInterface;
 use OpenDxp\Model\DataObject\Traits\OwnerAwareFieldTrait;
+use OpenDxp\Model\DataObject\Traits\ToStringRenderTrait;
 use Stringable;
 
 class RgbaColor implements OwnerAwareFieldInterface, Stringable
 {
     use OwnerAwareFieldTrait;
+    use ToStringRenderTrait;
 
     protected int $r;
 
@@ -157,7 +159,7 @@ class RgbaColor implements OwnerAwareFieldInterface, Stringable
         $this->markMeDirty();
     }
 
-    public function __toString(): string
+    protected function renderToString(): string
     {
         return $this->getHex(true, true);
     }

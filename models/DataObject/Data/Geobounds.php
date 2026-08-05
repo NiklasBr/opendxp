@@ -18,11 +18,13 @@ namespace OpenDxp\Model\DataObject\Data;
 
 use OpenDxp\Model\DataObject\OwnerAwareFieldInterface;
 use OpenDxp\Model\DataObject\Traits\OwnerAwareFieldTrait;
+use OpenDxp\Model\DataObject\Traits\ToStringRenderTrait;
 use Stringable;
 
 class Geobounds implements OwnerAwareFieldInterface, Stringable
 {
     use OwnerAwareFieldTrait;
+    use ToStringRenderTrait;
 
     protected ?GeoCoordinates $northEast = null;
 
@@ -71,7 +73,7 @@ class Geobounds implements OwnerAwareFieldInterface, Stringable
         return $this;
     }
 
-    public function __toString(): string
+    protected function renderToString(): string
     {
         $string = '';
         if ($this->northEast) {

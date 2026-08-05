@@ -19,11 +19,13 @@ namespace OpenDxp\Model\DataObject\Data;
 use OpenDxp\DateFormat;
 use OpenDxp\Model\DataObject\OwnerAwareFieldInterface;
 use OpenDxp\Model\DataObject\Traits\OwnerAwareFieldTrait;
+use OpenDxp\Model\DataObject\Traits\ToStringRenderTrait;
 use OpenDxp\Model\Element\Note;
 
 class Consent implements OwnerAwareFieldInterface
 {
     use OwnerAwareFieldTrait;
+    use ToStringRenderTrait;
 
     protected ?Note $note = null;
 

@@ -21,6 +21,7 @@ use OpenDxp\Helper\ArrayHelper;
 use OpenDxp\Logger;
 use OpenDxp\Model;
 use OpenDxp\Model\DataObject;
+use OpenDxp\Model\DataObject\Traits\ToStringRenderTrait;
 use Override;
 use Stringable;
 
@@ -30,6 +31,7 @@ use Stringable;
 class ElementMetadata extends Model\AbstractModel implements DataObject\OwnerAwareFieldInterface, Stringable
 {
     use DataObject\Traits\OwnerAwareFieldTrait;
+    use ToStringRenderTrait;
 
     protected ?string $elementType = null;
 
@@ -191,7 +193,7 @@ class ElementMetadata extends Model\AbstractModel implements DataObject\OwnerAwa
         $this->markMeDirty();
     }
 
-    public function __toString(): string
+    protected function renderToString(): string
     {
         return $this->getElement()?->__toString() ?? '';
     }

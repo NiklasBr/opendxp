@@ -30,11 +30,13 @@ use OpenDxp\Model\DataObject\Objectbrick\Definition;
 use OpenDxp\Model\DataObject\OwnerAwareFieldInterface;
 use OpenDxp\Model\DataObject\Traits\ObjectVarTrait;
 use OpenDxp\Model\DataObject\Traits\OwnerAwareFieldTrait;
+use OpenDxp\Model\DataObject\Traits\ToStringRenderTrait;
 
 class UrlSlug implements OwnerAwareFieldInterface
 {
     use ObjectVarTrait;
     use OwnerAwareFieldTrait;
+    use ToStringRenderTrait;
 
     public const string TABLE_NAME = 'object_url_slugs';
 

@@ -18,11 +18,13 @@ namespace OpenDxp\Model\DataObject\Data;
 
 use OpenDxp\Model\DataObject\OwnerAwareFieldInterface;
 use OpenDxp\Model\DataObject\Traits\OwnerAwareFieldTrait;
+use OpenDxp\Model\DataObject\Traits\ToStringRenderTrait;
 use Stringable;
 
 class GeoCoordinates implements OwnerAwareFieldInterface, Stringable
 {
     use OwnerAwareFieldTrait;
+    use ToStringRenderTrait;
 
     protected ?float $longitude = null;
 
@@ -77,7 +79,7 @@ class GeoCoordinates implements OwnerAwareFieldInterface, Stringable
         return $this;
     }
 
-    public function __toString(): string
+    protected function renderToString(): string
     {
         return $this->latitude . '; ' . $this->longitude;
     }

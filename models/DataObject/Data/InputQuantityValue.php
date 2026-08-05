@@ -43,7 +43,7 @@ class InputQuantityValue extends AbstractQuantityValue
     /**
      * @throws Exception
      */
-    public function __toString(): string
+    public function renderToString(): string
     {
         $value = $this->getValue();
         if ($this->getUnit() instanceof Unit) {

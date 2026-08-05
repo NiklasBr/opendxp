@@ -20,6 +20,7 @@ use OpenDxp\Model\Asset;
 use OpenDxp\Model\DataObject\OwnerAwareFieldInterface;
 use OpenDxp\Model\DataObject\Traits\ObjectVarTrait;
 use OpenDxp\Model\DataObject\Traits\OwnerAwareFieldTrait;
+use OpenDxp\Model\DataObject\Traits\ToStringRenderTrait;
 use OpenDxp\Model\Element\ElementDescriptor;
 use OpenDxp\Model\Element\Service;
 
@@ -27,6 +28,7 @@ class Video implements OwnerAwareFieldInterface
 {
     use OwnerAwareFieldTrait;
     use ObjectVarTrait;
+    use ToStringRenderTrait;
 
     protected ?string $type = null;
 

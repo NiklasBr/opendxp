@@ -22,6 +22,7 @@ use OpenDxp\Model\DataObject\Concrete;
 use OpenDxp\Model\DataObject\OwnerAwareFieldInterface;
 use OpenDxp\Model\DataObject\Traits\ObjectVarTrait;
 use OpenDxp\Model\DataObject\Traits\OwnerAwareFieldTrait;
+use OpenDxp\Model\DataObject\Traits\ToStringRenderTrait;
 use OpenDxp\Model\Document;
 use OpenDxp\Model\Element\ElementInterface;
 use OpenDxp\Model\Element\Service;
@@ -31,6 +32,7 @@ class Link implements OwnerAwareFieldInterface, Stringable
 {
     use OwnerAwareFieldTrait;
     use ObjectVarTrait;
+    use ToStringRenderTrait;
 
     protected string $text = '';
 
@@ -449,7 +451,7 @@ class Link implements OwnerAwareFieldInterface, Stringable
         return $this;
     }
 
-    public function __toString(): string
+    protected function renderToString(): string
     {
         return $this->getHtml();
     }

@@ -25,6 +25,7 @@ use OpenDxp\Cache\RuntimeCache;
 use OpenDxp\Model\AbstractModel;
 use OpenDxp\Model\DataObject\OwnerAwareFieldInterface;
 use OpenDxp\Model\DataObject\Traits\OwnerAwareFieldTrait;
+use OpenDxp\Model\DataObject\Traits\ToStringRenderTrait;
 use OpenDxp\Model\Element\AbstractElement;
 use OpenDxp\Model\Element\DeepCopy\UnmarshalMatcher;
 use OpenDxp\Model\Element\ElementDescriptor;
@@ -38,6 +39,7 @@ use Stringable;
 class BlockElement extends AbstractModel implements OwnerAwareFieldInterface, CacheMarshallerInterface, Stringable
 {
     use OwnerAwareFieldTrait;
+    use ToStringRenderTrait;
 
     /**
      * @internal
@@ -156,7 +158,7 @@ class BlockElement extends AbstractModel implements OwnerAwareFieldInterface, Ca
         $this->data = $copier->copy($this->data);
     }
 
-    public function __toString(): string
+    protected function renderToString(): string
     {
         return $this->name . '; ' . $this->type;
     }

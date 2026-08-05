@@ -18,10 +18,12 @@ namespace OpenDxp\Model\DataObject\Data;
 
 use OpenDxp\Model\DataObject\OwnerAwareFieldInterface;
 use OpenDxp\Model\DataObject\Traits\OwnerAwareFieldTrait;
+use OpenDxp\Model\DataObject\Traits\ToStringRenderTrait;
 
 class CalculatedValue implements OwnerAwareFieldInterface
 {
     use OwnerAwareFieldTrait;
+    use ToStringRenderTrait;
 
     protected string $ownerType = 'object';
 

@@ -85,7 +85,7 @@ class QuantityValueRange extends AbstractQuantityValue
         ];
     }
 
-    public function __toString(): string
+    public function renderToString(): string
     {
         $locale = OpenDxp::getContainer()->get(LocaleServiceInterface::class)->findLocale();
 
